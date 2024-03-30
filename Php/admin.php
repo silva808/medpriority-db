@@ -162,12 +162,11 @@
                                     <td> <?php echo $fila['nombre'];?></td>
                                     <td> <?php echo $fila['edad'];?></td>
                                     <td> <?php echo $fila['telefono'];?></td>
-                                    <td><button onclick="<?php $idtable=2;?>" data-modal-target="#modal">Editar</button></td>
+                                    <td><button data-modal-target="#modal">Editar</button></td>
                                     <td><button>Eliminar</button></td>
                                 </tr>
 
                                 <?php
-                                $getRoleMed = $fila['id_rol'];
                                     }
                                 }
                                 ?>
@@ -276,12 +275,11 @@
                                     <td><?php echo $row['nombre'];?></td>
                                     <td><?php echo $row['edad'];?></td>
                                     <td><?php echo $row['genero'];?></td>
-                                    <td><button onclick="<?php $idtable=1;?>" data-modal-target="#modal">Editar</button></td>
+                                    <td><button data-modal-target="#modal">Editar</button></td>
                                     <td><button>Eliminar</button></td>
                                 </tr>
                                     
                                 <?php
-                                $getRolePac = $row['id_rol'];
                                         }
                                     }
                                 ?>
@@ -298,22 +296,23 @@
 
     <?php
         require_once 'conexion.php';
-        if($idtable==1){
-            $sql3 = "SELECT * FROM usuario WHERE id_rol = '2'";
-        }
-        else if($idtable==2){
-            $sql3 = "SELECT * FROM usuario WHERE id_rol = '3'";
-        }
-        // $sql3 = "SELECT * FROM usuario WHERE id_rol = 'aaaaaaaaa'";
-        $q = mysqli_query( $conn, $sql3 );
-            if(mysqli_num_rows($q)>0){
-                while($ff =mysqli_fetch_assoc($q)){
+        // if($idtable==1){
+        //     $sql3 = "SELECT * FROM usuario WHERE id_rol = '2'";
+        // }
+        // else if($idtable==2){
+        //     $sql3 = "SELECT * FROM usuario WHERE id_rol = '3'";
+        // }
+
+
+        // $q = mysqli_query( $conn, $sql3 );
+        //     if(mysqli_num_rows($q)>0){
+        //         while($ff =mysqli_fetch_assoc($q)){
 
     ?>
 
     <div class="modal" id="modal">
         <div class="modal-header">
-            <span><?php echo htmlspecialchars($getRolePac)?></span>
+            <span><?php echo htmlspecialchars($getRole)?></span>
             <button data-close-button class="close-button">&times;</button>
         </div>
         <div class="modal-body">
@@ -322,8 +321,8 @@
         </div>
     </div>
     <?php
-                }
-            }
+                // }
+            // }
     ?>
     <div id="overlay"></div>
 

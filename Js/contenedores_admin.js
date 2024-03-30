@@ -43,7 +43,7 @@ openModalButton.forEach(button => {
 // })
 
 // ↑↑↑↑↑↑↑↑↑↑
-// when click on overlay it closes the modal
+// when click on overlay (background) it closes the modal
 
 closeModalButton.forEach(button => {
   button.addEventListener('click', () => {
