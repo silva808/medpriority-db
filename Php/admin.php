@@ -48,7 +48,7 @@
                         <a href="#">Regresar</a>
                     </div>
                 </div>
-                <div class="cont-main">
+                <!-- <div class="cont-main"> -->
                     <div id="mainDiv1" class="manage-main">
                         <div id="1" class="manage active">
                             <a href="#">Gestionar médicos</a>
@@ -60,8 +60,8 @@
                             <a href="#med-panel">Panel médico</a>
                         </div>
                     </div>
-                </div>
-                <div class="cont-main">
+                <!-- </div> -->
+                <!-- <div class="cont-main"> -->
                     <div id="mainDiv2" class="manage-main">
                         <div id="4" class="manage active">
                             <a href="#">Gestionar pacientes</a>
@@ -73,7 +73,7 @@
                             <a href="#patient-list">Lista paciente</a>
                         </div>
                     </div>
-                </div>
+                <!-- </div> -->
                 <!-- <div class="aux2"></div> -->
             </div>
 
@@ -264,8 +264,6 @@
                             <?php
 
                             require_once  'conexion.php';
-                            $patientmodal = "SELECT * FROM usuario WHERE id_rol='2'"; //paciente modal
-                            $medicmodal = "SELECT * FROM usuario WHERE id_rol='3'"; //medico modal
  
                             $sql2 = "SELECT * FROM usuario WHERE id_rol='2'";   //paciente
                             $query = mysqli_query( $conn, $sql2 );
@@ -278,7 +276,7 @@
                                     <td><?php echo $row['nombre'];?></td>
                                     <td><?php echo $row['edad'];?></td>
                                     <td><?php echo $row['genero'];?></td>
-                                    <td><button data-modal-target="#modal_<?php echo $fila['id_usuario']; ?>">Editar</button></td>
+                                    <td><button data-modal-target="#modal">Editar</button></td>
                                     <td><button>Eliminar</button></td>
                                 </tr>
                                     
@@ -299,28 +297,25 @@
 
     <?php
         require_once 'conexion.php';
-        // if($idtable==1){
-        //     $sql3 = "SELECT * FROM usuario WHERE id_rol = '2'";
-        // }
-        // else if($idtable==2){
-        //     $sql3 = "SELECT * FROM usuario WHERE id_rol = '3'";
-        // }
 
-
-        $q = mysqli_query( $conn, $medicmodal );
+        $q = mysqli_query( $conn, $sql );
             if(mysqli_num_rows($q)>0){
                 while($ff =mysqli_fetch_assoc($q)){
 
     ?>
 
-    <div class="modal" id="modal_<?php echo $ff['id_usuario']; ?>">
+    <div class="modal" id="modal">
         <div class="modal-header">
-            <span><?php echo htmlspecialchars($ff['nombre'])?></span>
+            <span> Editar datos de <?php echo htmlspecialchars($ff['nombre'])?></span>
             <button data-close-button class="close-button">&times;</button>
         </div>
         <div class="modal-body">
-            <span><?php echo htmlspecialchars($ff['nombre']) ?></span>
-            <span><?php echo htmlspecialchars($ff['nombre']) ?></span>
+            <div class="type"></div>
+            <div class="id"></div>
+            <div class="name"></div>
+            <div class="age"></div>
+            <div class="address"></div>
+            <div class="affiliation"></div>
         </div>
     </div>
     <?php
