@@ -264,6 +264,9 @@
                             <?php
 
                             require_once  'conexion.php';
+                            $patientmodal = "SELECT * FROM usuario WHERE id_rol='2'"; //paciente modal
+                            $medicmodal = "SELECT * FROM usuario WHERE id_rol='3'"; //medico modal
+ 
                             $sql2 = "SELECT * FROM usuario WHERE id_rol='2'";   //paciente
                             $query = mysqli_query( $conn, $sql2 );
                             if(mysqli_num_rows($query)>0){
@@ -275,7 +278,7 @@
                                     <td><?php echo $row['nombre'];?></td>
                                     <td><?php echo $row['edad'];?></td>
                                     <td><?php echo $row['genero'];?></td>
-                                    <td><button data-modal-target="#modal">Editar</button></td>
+                                    <td><button data-modal-target="#modal_<?php echo $fila['id_usuario']; ?>">Editar</button></td>
                                     <td><button>Eliminar</button></td>
                                 </tr>
                                     
@@ -304,15 +307,15 @@
         // }
 
 
-        // $q = mysqli_query( $conn, $sql3 );
-        //     if(mysqli_num_rows($q)>0){
-        //         while($ff =mysqli_fetch_assoc($q)){
+        $q = mysqli_query( $conn, $medicmodal );
+            if(mysqli_num_rows($q)>0){
+                while($ff =mysqli_fetch_assoc($q)){
 
     ?>
 
-    <div class="modal" id="modal">
+    <div class="modal" id="modal_<?php echo $ff['id_usuario']; ?>">
         <div class="modal-header">
-            <span><?php echo htmlspecialchars($getRole)?></span>
+            <span><?php echo htmlspecialchars($ff['nombre'])?></span>
             <button data-close-button class="close-button">&times;</button>
         </div>
         <div class="modal-body">
@@ -321,8 +324,8 @@
         </div>
     </div>
     <?php
-                // }
-            // }
+                }
+            }
     ?>
     <div id="overlay"></div>
 

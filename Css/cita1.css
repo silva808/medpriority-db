@@ -110,6 +110,7 @@ p {
     display: flex;
     justify-content: space-between;
     display: contents;
+    /* border: 1px solid; */
 }
 
 /*contenedor que contine  las opciones del menu */

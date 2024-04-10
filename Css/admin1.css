@@ -156,7 +156,7 @@ section{
 /* ---------------------------------------MENU OPTIONS------------------------------------- */
 
 .menu-options{
-    /* border: 1px solid red; */
+    border: 1px solid blue;
     background-color: #F5F5F5;
     /* gap: calc(14%); */
     display: flex;
@@ -185,22 +185,23 @@ section{
 
 .cont-main{
     display: flex;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     /* height: calc(35%); */
     height: 10%;
     flex-direction: column;
     width: 100%;
     /* justify-content: space-evenly; */
     /* gap: 40%; */
-    align-items: end;
-    margin-top: 32%;
+    /* align-items: end; */
+    /* margin-top: 32%; */
+    margin-top: 50%;
 }
 
 .manage-main{
-    /* border: 1px solid blue; */
+    border: 1px solid violet;
     background-color: #1BC100;
     width: 113%;
-    align-self: flex-end;
+    /* align-self: flex-end; */
     border-radius: 0px 15px 15px 0px;
     /* flex: none; */
     margin-top: 30%;
@@ -213,7 +214,7 @@ section{
 }
 
 .manage{
-    /* border: 1px solid red; */
+    border: 1px solid red;
     align-items: center;
     padding-left: 11%;
     display: display;
@@ -224,7 +225,7 @@ section{
 }
 .manage.active{
     display: block;
-    max-height: 100px;  /*?????? la animacion cambia entre vh, px y %*/
+    max-height: 100%;  /*?????? la animacion cambia entre vh, px y %*/
 }
 
 .manage-main a:hover{
