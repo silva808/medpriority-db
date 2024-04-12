@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedPriority ADMIN</title>
-    <link rel="stylesheet" href="../Css/admin4.css">
+    <link rel="stylesheet" href="../Css/admin5.css">
 </head>
 
 <header>
@@ -40,7 +40,7 @@
         <button data-close-button class="close-button">&times;</button>
     </div>
     <div class="modal-body">
-    <div class="edit-modal">Tipo de Documento
+        <div class="edit-modal">Tipo de Documento
             <input type="text" value="<?php echo htmlspecialchars($ff['tipo_documento'])?>">
         </div>
         <div class="edit-modal">Numero de Documento
@@ -66,6 +66,9 @@
         </div>
         <div class="edit-modal">Tipo de Afiliacion
             <input type="text" value="<?php echo htmlspecialchars($ff['tipo_afiliacion'])?>">
+        </div>
+        <div class="modal-savebutton">
+            <button>Aplicar cambios</button>
         </div>
     </div>
 </div>

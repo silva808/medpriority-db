@@ -657,9 +657,32 @@ table button{
 /* ---------------------------- MODAL CONTENT -------------------------*/
 
 .modal-body{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 100%;
 }
+
+.modal-savebutton{
+    /* border: 1px solid red; */
+    height: 9%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-savebutton button{
+    background-color: #1BC100;
+    border-radius: 15px;
+    width: 30%;
+    border: transparent;
+    height: 55%;
+    color: #ffffff;
+    font-size:small;
+}
+
+.modal-savebutton button:hover{
+    cursor: pointer;
+}
+
 .edit-modal{
     /* border: 1px solid red; */
     display: flex;
