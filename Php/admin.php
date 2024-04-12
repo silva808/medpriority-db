@@ -22,6 +22,59 @@
 <body>
     <section>
 
+    <!-- -------------------------------MODAL------------------------------------------ -->
+
+<?php
+    require_once 'conexion.php';
+
+    $bruh = "SELECT * FROM usuario WHERE id_rol='3' OR id_rol='2'";   //jiji
+    $q = mysqli_query( $conn, $bruh );
+        if(mysqli_num_rows($q)>0){
+            while($ff =mysqli_fetch_assoc($q)){
+                $modalId = 'modal_' . $ff['id_usuario'];
+?>
+
+<div class="modal" id="<?php echo $modalId?>">
+    <div class="modal-header">
+        <span><?php echo htmlspecialchars($ff['nombre'])?></span>
+        <button data-close-button class="close-button">&times;</button>
+    </div>
+    <div class="modal-body">
+    <div class="edit-modal">Tipo de Documento
+            <input type="text" value="<?php echo htmlspecialchars($ff['tipo_documento'])?>">
+        </div>
+        <div class="edit-modal">Numero de Documento
+            <input type="text" value="<?php echo htmlspecialchars($ff['id_usuario'])?>">
+        </div>
+        <div class="edit-modal">Nombre
+            <input type="text" value="<?php echo htmlspecialchars($ff['nombre'])?>">
+        </div>
+        <div class="edit-modal">Edad
+            <input type="text" value="<?php echo htmlspecialchars($ff['edad'])?>">
+        </div>
+        <div class="edit-modal">Sexo
+            <input type="text" value="<?php echo htmlspecialchars($ff['genero'])?>">
+        </div>
+        <div class="edit-modal">Direccion
+            <input type="text" value="<?php echo htmlspecialchars($ff['direccion'])?>">
+        </div>
+        <div class="edit-modal">Telefono
+            <input type="text" value="<?php echo htmlspecialchars($ff['telefono'])?>">
+        </div>
+        <div class="edit-modal">Correo Electronico
+            <input type="text" value="<?php echo htmlspecialchars($ff['correo'])?>">
+        </div>
+        <div class="edit-modal">Tipo de Afiliacion
+            <input type="text" value="<?php echo htmlspecialchars($ff['tipo_afiliacion'])?>">
+        </div>
+    </div>
+</div>
+<?php
+            }
+        }
+?>
+<div id="overlay"></div>
+
         <!-- -------------------MENU------------------- -->
 
         <div class="menu">
@@ -161,7 +214,8 @@
                                     <td> <?php echo $fila['nombre'];?></td>
                                     <td> <?php echo $fila['edad'];?></td>
                                     <td> <?php echo $fila['telefono'];?></td>
-                                    <td><button data-modal-target="#modal">Detalles</button></td>
+                                    <!-- <td><button data-modal-target="#modal">Detalles</button></td> -->
+                                    <td><button data-modal-target="#modal_<?php echo $fila['id_usuario'];?>">Detalles</button></td>
                                     <td><button>Eliminar</button></td>
                                 </tr>
 
@@ -275,7 +329,8 @@
                                     <td><?php echo $row['nombre'];?></td>
                                     <td><?php echo $row['edad'];?></td>
                                     <td><?php echo $row['genero'];?></td>
-                                    <td><button data-modal-target="#modal">Detalles</button></td>
+                                    <!-- <td><button data-modal-target="#modal">Detalles</button></td> -->
+                                    <td><button data-modal-target="#modal_<?php echo $row['id_usuario'];?>">Detalles</button></td>
                                     <td><button>Eliminar</button></td>
                                 </tr>
                                     
@@ -292,58 +347,7 @@
         </main>
     </section>
 
-    <!-- -------------------------------MODAL------------------------------------------ -->
-
-    <?php
-        require_once 'conexion.php';
-
-        $bruh = "SELECT * FROM usuario WHERE id_rol='3' OR id_rol='2'";   //jiji
-        $q = mysqli_query( $conn, $bruh );
-            if(mysqli_num_rows($q)>0){
-                while($ff =mysqli_fetch_assoc($q)){
-
-    ?>
-
-    <div class="modal" id="modal">
-        <div class="modal-header">
-            <span><?php echo htmlspecialchars($ff['nombre'])?></span>
-            <button data-close-button class="close-button">&times;</button>
-        </div>
-        <div class="modal-body">
-        <div class="edit-modal">Tipo de Documento
-                <input type="text" value="<?php echo htmlspecialchars($ff['tipo_documento'])?>">
-            </div>
-            <div class="edit-modal">Numero de Documento
-                <input type="text" value="<?php echo htmlspecialchars($ff['id_usuario'])?>">
-            </div>
-            <div class="edit-modal">Nombre
-                <input type="text" value="<?php echo htmlspecialchars($ff['nombre'])?>">
-            </div>
-            <div class="edit-modal">Edad
-                <input type="text" value="<?php echo htmlspecialchars($ff['edad'])?>">
-            </div>
-            <div class="edit-modal">Sexo
-                <input type="text" value="<?php echo htmlspecialchars($ff['genero'])?>">
-            </div>
-            <div class="edit-modal">Direccion
-                <input type="text" value="<?php echo htmlspecialchars($ff['direccion'])?>">
-            </div>
-            <div class="edit-modal">Telefono
-                <input type="text" value="<?php echo htmlspecialchars($ff['telefono'])?>">
-            </div>
-            <div class="edit-modal">Correo Electronico
-                <input type="text" value="<?php echo htmlspecialchars($ff['correo'])?>">
-            </div>
-            <div class="edit-modal">Tipo de Afiliacion
-                <input type="text" value="<?php echo htmlspecialchars($ff['tipo_afiliacion'])?>">
-            </div>
-        </div>
-    </div>
-    <?php
-                }
-            }
-    ?>
-    <div id="overlay"></div>
+    <!-- PASTE MODAL HERE -->
 
     <script src="../Js/contenedores_admin.js"></script>
 
