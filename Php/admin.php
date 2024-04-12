@@ -214,7 +214,6 @@
                                     <td> <?php echo $fila['nombre'];?></td>
                                     <td> <?php echo $fila['edad'];?></td>
                                     <td> <?php echo $fila['telefono'];?></td>
-                                    <!-- <td><button data-modal-target="#modal">Detalles</button></td> -->
                                     <td><button data-modal-target="#modal_<?php echo $fila['id_usuario'];?>">Detalles</button></td>
                                     <td><button>Eliminar</button></td>
                                 </tr>
@@ -329,7 +328,6 @@
                                     <td><?php echo $row['nombre'];?></td>
                                     <td><?php echo $row['edad'];?></td>
                                     <td><?php echo $row['genero'];?></td>
-                                    <!-- <td><button data-modal-target="#modal">Detalles</button></td> -->
                                     <td><button data-modal-target="#modal_<?php echo $row['id_usuario'];?>">Detalles</button></td>
                                     <td><button>Eliminar</button></td>
                                 </tr>
