@@ -37,7 +37,7 @@
 <div class="modal" id="<?php echo $modalId?>">
     <div class="modal-header">
         <span><?php echo htmlspecialchars($ff['nombre'])?></span>
-        <button data-close-button class="close-button">&times;</button>
+        <button id=chao data-close-button class="close-button">&times;</button>
     </div>
     <div class="modal-body">
         <div class="edit-modal">Tipo de Documento
