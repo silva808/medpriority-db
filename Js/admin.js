@@ -65,7 +65,7 @@ function closeModal(modal) {
 }
 
 // -------------------------UPDATE MODAL BUTTON---------------------
-const valorant = document.getElementById("nyaa");
+const valorant = document.getElementById("sage");
 
 valorant.addEventListener("click", function(){
   console.log("sage la mejor");
@@ -109,7 +109,7 @@ correoElectronicoInput.addEventListener('input', enableSaveButton);
 tipoAfiliacionInput.addEventListener('input', enableSaveButton);
 
 function enableSaveButton() {
-  var saveButton = document.getElementById('nyaa');
+  var saveButton = document.getElementById('sage');
   // Enable the button if any input value is different from the initial value
   saveButton.disabled = (
       tipoDocumentoInput.value === initialValues.tipo_documento &&

@@ -68,7 +68,7 @@
             <input type="text" required id=afi value="<?php echo htmlspecialchars($ff['tipo_afiliacion'])?>">
         </div>
         <div class="modal-savebutton">
-            <button id=nyaa disabled>Aplicar cambios</button>
+            <button id=sage disabled>Aplicar cambios</button>
         </div>
     </div>
 </div>
