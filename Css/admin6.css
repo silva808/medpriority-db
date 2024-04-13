@@ -669,7 +669,7 @@ table button{
     justify-content: center;
 }
 
-.modal-savebutton button{
+/* .modal-savebutton button{
     background-color: #1BC100;
     border-radius: 15px;
     width: 30%;
@@ -677,7 +677,7 @@ table button{
     height: 55%;
     color: #ffffff;
     font-size:small;
-}
+} */
 
 .modal-savebutton button:hover{
     cursor: pointer;

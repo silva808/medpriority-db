@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedPriority ADMIN</title>
-    <link rel="stylesheet" href="../Css/admin5.css">
+    <link rel="stylesheet" href="../Css/admin6.css">
 </head>
 
 <header>
@@ -41,34 +41,34 @@
     </div>
     <div class="modal-body">
         <div class="edit-modal">Tipo de Documento
-            <input type="text" value="<?php echo htmlspecialchars($ff['tipo_documento'])?>">
+            <input type="text" required id=id_type value="<?php echo htmlspecialchars($ff['tipo_documento'])?>">
         </div>
         <div class="edit-modal">Numero de Documento
-            <input type="text" value="<?php echo htmlspecialchars($ff['id_usuario'])?>">
+            <input type="text" required id=id value="<?php echo htmlspecialchars($ff['id_usuario'])?>">
         </div>
         <div class="edit-modal">Nombre
-            <input type="text" value="<?php echo htmlspecialchars($ff['nombre'])?>">
+            <input type="text" required id=name value="<?php echo htmlspecialchars($ff['nombre'])?>">
         </div>
         <div class="edit-modal">Edad
-            <input type="text" value="<?php echo htmlspecialchars($ff['edad'])?>">
+            <input type="text" required id=age value="<?php echo htmlspecialchars($ff['edad'])?>">
         </div>
         <div class="edit-modal">Sexo
-            <input type="text" value="<?php echo htmlspecialchars($ff['genero'])?>">
+            <input type="text" required id=sexmoneyfeelingsdie value="<?php echo htmlspecialchars($ff['genero'])?>">
         </div>
         <div class="edit-modal">Direccion
-            <input type="text" value="<?php echo htmlspecialchars($ff['direccion'])?>">
+            <input type="text" required id=address value="<?php echo htmlspecialchars($ff['direccion'])?>">
         </div>
         <div class="edit-modal">Telefono
-            <input type="text" value="<?php echo htmlspecialchars($ff['telefono'])?>">
+            <input type="text" required id=pickupyophonebaby value="<?php echo htmlspecialchars($ff['telefono'])?>">
         </div>
         <div class="edit-modal">Correo Electronico
-            <input type="text" value="<?php echo htmlspecialchars($ff['correo'])?>">
+            <input type="text" required id=email value="<?php echo htmlspecialchars($ff['correo'])?>">
         </div>
         <div class="edit-modal">Tipo de Afiliacion
-            <input type="text" value="<?php echo htmlspecialchars($ff['tipo_afiliacion'])?>">
+            <input type="text" required id=afi value="<?php echo htmlspecialchars($ff['tipo_afiliacion'])?>">
         </div>
         <div class="modal-savebutton">
-            <button>Aplicar cambios</button>
+            <button id=nyaa disabled>Aplicar cambios</button>
         </div>
     </div>
 </div>
@@ -348,9 +348,9 @@
         </main>
     </section>
 
-    <!-- PASTE MODAL HERE -->
+    <!-- PASTE MODAL HERE IF NEEDED BACK LOL-->
 
-    <script src="../Js/contenedores_admin.js"></script>
+    <script src="../Js/admin.js"></script>
 
 </body>
 

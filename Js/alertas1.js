@@ -22,7 +22,7 @@ function cerrar2() {
     c.style.display = 'none';
     c.style.visibility = 'hidden';
     document.body.style.overflow = 'auto';
-    console.log("yes????????");
+    console.log("yes????????"); //didnt work lmaoooo i dont fw this shit
 }
 agendar.addEventListener('click', abrir1());
 cierra.addEventListener('click', cerrar2());
