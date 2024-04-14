@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     function toggleAccordion(div) {
       div.classList.toggle("active");
+      console.log("yes?????????");
     }
   }
 
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener('click', () => {
       const modal = document.querySelector(button.dataset.modalTarget)
       openModal(modal)
+      console.log("uwuwuwu");
     })
   })
 
@@ -64,15 +66,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // -------------------------test button---------------------
 
-  const valorant = document.getElementById("sage");
+  // const valorant = document.getElementById("sage");
+  const valorant = document.querySelectorAll('[id^="sage_"]');
 
-  valorant.addEventListener("click", function(){
-    console.log("sage la mejor");
-  })
+  // valorant.addEventListener("click", function(){
+  //   console.log("sage la mejor");
+  // })
+
+  valorant.forEach(button => {
+    button.addEventListener("click", function(){
+        console.log("sage la mejor");
+    });
+});
 
   // ---------------------------UPDATE MODAL BUTTON-----------------------------
 
-  //valores default (datos en db)
+  // valores default (datos en db)
   var initialValues = {
     tipo_documento: "<?php echo htmlspecialchars($ff['tipo_documento'])?>",
     numero_documento: "<?php echo htmlspecialchars($ff['id_usuario'])?>",
@@ -96,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var correoElectronicoInput = document.getElementById('email');
   var tipoAfiliacionInput = document.getElementById('afi');
 
-  // si detecta activa el enable
+  // si detecta cambio en los inputs activa la funcion enable
   tipoDocumentoInput.addEventListener('input', enableSaveButton);
   numeroDocumentoInput.addEventListener('input', enableSaveButton);
   nombreInput.addEventListener('input', enableSaveButton);
