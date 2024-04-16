@@ -44,39 +44,40 @@
 <div class="modal" id="<?php echo $modalId?>">
     <div class="modal-header">
         <span><?php echo htmlspecialchars($ff['nombre'])?></span>
+        <span><?php echo htmlspecialchars($identi)?></span>
         <button id=chao data-close-button class="close-button">&times;</button>
     </div>
     <div class="modal-body">
         <div class="edit-modal">Tipo de Documento
-            <input type="text" required id=id_type value="<?php echo htmlspecialchars($ff['tipo_documento'])?>">
+            <input type="text" required id=id_type_<?php echo $modalId?> value="<?php echo htmlspecialchars($ff['tipo_documento'])?>">
         </div>
         <div class="edit-modal">Numero de Documento
-            <input type="text" disabled required id=id value="<?php echo htmlspecialchars($ff['id_usuario'])?>">
+            <input type="text" disabled required id=id_<?php echo $modalId?> value="<?php echo htmlspecialchars($ff['id_usuario'])?>">
         </div>
         <div class="edit-modal">Nombre
-            <input type="text" required id=name value="<?php echo htmlspecialchars($ff['nombre'])?>">
+            <input type="text" required id=name_<?php echo $modalId?> value="<?php echo htmlspecialchars($ff['nombre'])?>">
         </div>
         <div class="edit-modal">Edad
-            <input type="text" required id=age value="<?php echo htmlspecialchars($ff['edad'])?>">
+            <input type="text" required id=age_<?php echo $modalId?> value="<?php echo htmlspecialchars($ff['edad'])?>">
         </div>
         <div class="edit-modal">Sexo
-            <input type="text" required id=sexmoneyfeelingsdie value="<?php echo htmlspecialchars($ff['genero'])?>">
+            <input type="text" required id=sexmoneyfeelingsdie_<?php echo $modalId?> value="<?php echo htmlspecialchars($ff['genero'])?>">
         </div>
         <div class="edit-modal">Direccion
-            <input type="text" required id=address value="<?php echo htmlspecialchars($ff['direccion'])?>">
+            <input type="text" required id=address_<?php echo $modalId?> value="<?php echo htmlspecialchars($ff['direccion'])?>">
         </div>
         <div class="edit-modal">Telefono
-            <input type="text" required id=pickupyophonebaby value="<?php echo htmlspecialchars($ff['telefono'])?>">
+            <input type="text" required id=pickupyophonebaby_<?php echo $modalId?> value="<?php echo htmlspecialchars($ff['telefono'])?>">
         </div>
         <div class="edit-modal">Correo Electronico
-            <input type="text" required id=email value="<?php echo htmlspecialchars($ff['correo'])?>">
+            <input type="text" required id=email_<?php echo $modalId?> value="<?php echo htmlspecialchars($ff['correo'])?>">
         </div>
         <div class="edit-modal">Tipo de Afiliacion
-            <input type="text" required id=afi value="<?php echo htmlspecialchars($ff['tipo_afiliacion'])?>">
+            <input type="text" required id=afi_<?php echo $modalId?> value="<?php echo htmlspecialchars($ff['tipo_afiliacion'])?>">
         </div>
         <div class="modal-savebutton">
-            <!-- <button class="save-button" id="sage" data-modal-id="<?php echo $modalId;?>">Aplicar cambios</button> -->
-            <input type="submit" class="save-button" id="sage_<?php echo $modalId;?>" data-modal-id="<?php echo $modalId;?>"></button>
+            <button class="save-button" disabled id="sage" data-modal-id="<?php echo $modalId;?>">Aplicar cambios</button>
+            <!-- <input type="submit" class="save-button" id="sage_<?php echo $modalId;?>" data-modal-id="<?php echo $modalId;?>"></button> -->
         </div>
     </div>
 </div>
