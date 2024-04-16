@@ -32,6 +32,13 @@
         if(mysqli_num_rows($q)>0){
             while($ff =mysqli_fetch_assoc($q)){
                 $modalId = 'modal_' . $ff['id_usuario'];
+
+                $identi = $ff['id_usuario'];
+
+
+                // ------------------------------
+
+
 ?>
 
 <div class="modal" id="<?php echo $modalId?>">
@@ -44,7 +51,7 @@
             <input type="text" required id=id_type value="<?php echo htmlspecialchars($ff['tipo_documento'])?>">
         </div>
         <div class="edit-modal">Numero de Documento
-            <input type="text" required id=id value="<?php echo htmlspecialchars($ff['id_usuario'])?>">
+            <input type="text" disabled required id=id value="<?php echo htmlspecialchars($ff['id_usuario'])?>">
         </div>
         <div class="edit-modal">Nombre
             <input type="text" required id=name value="<?php echo htmlspecialchars($ff['nombre'])?>">
@@ -68,7 +75,8 @@
             <input type="text" required id=afi value="<?php echo htmlspecialchars($ff['tipo_afiliacion'])?>">
         </div>
         <div class="modal-savebutton">
-            <button id="sage_<?php echo $modalId;?>" disabled>Aplicar cambios</button>
+            <!-- <button class="save-button" id="sage" data-modal-id="<?php echo $modalId;?>">Aplicar cambios</button> -->
+            <input type="submit" class="save-button" id="sage_<?php echo $modalId;?>" data-modal-id="<?php echo $modalId;?>"></button>
         </div>
     </div>
 </div>
