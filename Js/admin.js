@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //     });
 // });
 
-// ------------------------------------------------
+// -----------------------UPDATE USERS WHEN CLICK ON BUTTON-------------------------
 
 // Iterate over all buttons with id starting with "sage"
 
@@ -106,9 +106,6 @@ valorant.forEach(button => {
         // Send AJAX request to update user data
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "admin.php", true);
-        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xhr.onreadystatechange = function () {
-        };
         console.log(data);
         xhr.send(JSON.stringify(data));
     });
