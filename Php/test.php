@@ -1,21 +1,18 @@
 <?php
     require_once 'conexion.php';
 
-    // Get data sent via POST
-    $tipoDocumento = $_POST['id_type'];
-    $numeroDocumento = $_POST['id']; //just in case
-    $nombre = $_POST['name'];
-    $edad = $_POST['age'];
-    $sexo = $_POST['sexmoneyfeelingsdie'];
-    $direccion = $_POST['address'];
-    $telefono = $_POST['pickupyophonebaby'];
-    $correoElectronico = $_POST['email'];
-    $tipoAfiliacion = $_POST['afi'];
-    // Get other data fields similarly
+    if(isset($_POST['id'])) {
+        $tipoDocumento = $_POST['id_type'];
+        $numeroDocumento = $_POST['id']; //just in case
+        $nombre = $_POST['name'];
+        $edad = $_POST['age'];
+        $sexo = $_POST['sexmoneyfeelingsdie'];
+        $direccion = $_POST['address'];
+        $telefono = $_POST['pickupyophonebaby'];
+        $correoElectronico = $_POST['email'];
+        $tipoAfiliacion = $_POST['afi'];
 
-    // Update database
-
-    $sage = "UPDATE usuario SET tipo_documento='$tipoDocumento', 
+    $sage = "UPDATE usuario SET tipo_documento='$tipoDocumento',
     nombre='$nombre',
     edad='$edad',
     genero='$sexo',
@@ -23,11 +20,16 @@
     telefono='$telefono',
     correo='$correoElectronico',
     tipo_afiliacion='$tipoAfiliacion'
-    WHERE id_usuario='$identi'";
+    WHERE id_usuario='$numeroDocumento'";
+    
+    echo $sage; // Output the SQL query for debugging
 
     if (mysqli_query($conn, $sage)) {
-        echo "Record updated successfully";
+        
     } else {
         echo "Error updating record: " . mysqli_error($conn);
     }
+    
+} 
+    mysqli_close($conn);
 ?>
