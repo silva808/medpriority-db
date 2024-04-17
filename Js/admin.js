@@ -66,18 +66,64 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // -------------------------test button---------------------
 
-  // const valorant = document.getElementById("sage");
-  const valorant = document.querySelectorAll('[id^="sage"]');
+//   // const valorant = document.getElementById("sage");
+//   const valorant = document.querySelectorAll('[id^="sage"]');
 
-  // valorant.addEventListener("click", function(){
-  //   console.log("sage la mejor");
-  // })
+//   // valorant.addEventListener("click", function(){
+//   //   console.log("sage la mejor");
+//   // })
 
-  valorant.forEach(button => {
+//   valorant.forEach(button => {
+//     button.addEventListener("click", function(){
+//         console.log("sage la mejor");
+//     });
+// });
+
+// ------------------------------------------------
+
+// Iterate over all buttons with id starting with "sage"
+
+const valorant = document.querySelectorAll('[id^="sage"]');
+  // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+// Attach click event listener to each button
+valorant.forEach(button => {
     button.addEventListener("click", function(){
+        // Get the modal id associated with this button
         console.log("sage la mejor");
+        const modalId = this.getAttribute('data-modal-id');
+        
+        // Find all input fields within the modal
+        const modal = document.getElementById(modalId);
+        const inputs = modal.querySelectorAll('input');
+
+        // Prepare data object to send via AJAX
+        const data = {};
+        inputs.forEach(input => {
+            data[input.name] = input.value;
+        });
+
+        // Send AJAX request to update user data
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "admin.php", true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.onreadystatechange = function () {
+        };
+        console.log(data);
+        xhr.send(JSON.stringify(data));
     });
 });
+
+
+
+
+
+
+
+
+
+
+
 
   // ---------------------------UPDATE MODAL APPLY BUTTON-----------------------------
   // -----------------------------NOT WORKING YET-------------------------------------
