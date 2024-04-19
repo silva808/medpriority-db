@@ -18,18 +18,32 @@ header{
     /* border: 1px solid red; */
     width: 100%;
     height: 12%;
+    /* padding-left: 2%; */
+    /* padding-right: 2%; */
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    /* gap: calc(60%); */
     align-items: center;
     border-bottom: #1BC100 solid;
+}
+.nav{
+    pointer-events: none;
+    display: flex;
+    /* border: 1px solid red; */
+    width: 90%;
+    height: 100%;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    /* gap: 10%; */
 }
 .logo{
     display: flex;
     /* border: 1px solid; */
     align-items: center;
-    justify-content: end;
-    height: 60%;
-    width: 15%;
+    justify-content: start;
+    height: 80%;
+    width: 70%;
     gap: calc(5%);
 }
 .logo:hover{
@@ -38,7 +52,7 @@ header{
 .logo-pic{
     /* border: 1px solid orange; */
     height: 100%;
-    width: 25%;
+    width: calc(10%);
     background-image: url(../Img/logo.jpeg);
     background-size: calc(100%) calc(100%);
 }
@@ -46,25 +60,128 @@ header{
     background: linear-gradient(to right, #006400, #8fbc8f);
     -webkit-background-clip: text;
     color: transparent;
+    font-size: xx-large;
 }
 .user{
     display: flex;
     /* border: 1px solid; */
     align-items: center;
-    justify-content: start;
-    height: 60%;
-    width: 15%;
+    justify-content: end;
+    height: 80%;
+    width: 30%;
     gap: calc(5%);
+}
+.user-name{
+    font-size: x-large;
 }
 .user-pic{
     /* border: 1px solid fuchsia; */
     height: 100%;
-    width: 25%;
+    width: 20%;
     background-image: url(../Img/icon.svg);
     background-size: calc(100%) calc(100%);
 }
 .user-pic:hover{
     cursor: pointer;
+}
+
+.btn-mobile{
+    /* border: 1px solid blue; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 30px;
+    touch-action: manipulation;  /* ??? */
+    pointer-events: auto;  /* ??? */
+    justify-content: center;
+    margin-right: 10%;
+}
+
+.icon-bar{
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #000000;
+    transition: .3s;
+}
+
+.icon-bar + .icon-bar {
+    margin-top: 5px;
+}
+
+#nav-container{
+    width: 20%;
+    pointer-events: none;
+    /* border: 1px solid blue; */
+    display: none;
+}
+
+#nav-container .blurry-bg {
+    position: fixed;
+    /* top: 12%; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: .3s;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    /* border: 1px solid red; */
+  }
+  #nav-container:focus-within .blurry-bg {
+    visibility: visible;
+    opacity: .6;
+  }
+
+#nav-container:focus-within .btn-mobile {
+    pointer-events: none;
+}
+#nav-container:focus-within .icon-bar:nth-of-type(1) {
+    transform: translate3d(0,8px,0) rotate(-45deg);
+}
+#nav-container:focus-within .icon-bar:nth-of-type(2) {
+    opacity: 0;
+}
+#nav-container:focus-within .icon-bar:nth-of-type(3) {
+    transform: translate3d(0,-8px,0) rotate(45deg);
+}
+
+#nav-content {
+    /* border: 1px solid fuchsia; */
+    margin-top: 70px;
+    padding: 20px;
+    width: 90%;
+    max-width: 300px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: 88%;
+    background: #F5F5F5;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    transform: translateX(100%);
+    transition: transform .3s;
+    will-change: transform;
+    contain: paint;
+}
+
+  #nav-content ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+  
+  #nav-content li a {
+    padding: 10px 5px;
+    display: block;
+    text-transform: uppercase;
+    transition: color .1s;
+}
+
+  #nav-container:focus-within #nav-content {
+    transform: none;
 }
 
 /* ----------------------------------MENU BUTTONS------------------------------- */
@@ -156,12 +273,12 @@ section{
 /* ---------------------------------------MENU OPTIONS------------------------------------- */
 
 .menu-options{
-    /* border: 1px solid blue; */
+    /* border: 1px solid red; */
     background-color: #F5F5F5;
     /* gap: calc(14%); */
     display: flex;
     height: 90%;
-    width: 35%;
+    width: calc(35%);
     flex-direction: column;
     align-items: center;
     /* justify-content: center; */
@@ -175,30 +292,21 @@ section{
     text-decoration: none;
 }
 
-.aux2{
-    /* border: 1px solid; */
-    /* height: 15%; */
-    /* height: 8%; */
-    width: 100%;
-    margin-top: 12%;
-}
-
 .cont-main{
     display: flex;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     /* height: calc(35%); */
-    height: 10%;
+    height: 12%;
     flex-direction: column;
     width: 100%;
     /* justify-content: space-evenly; */
     /* gap: 40%; */
     align-items: end;
-    /* margin-top: 32%; */
-    margin-top: 50%;
+    margin-top: 32%;
 }
 
 .manage-main{
-    /* border: 1px solid violet; */
+    /* border: 1px solid blue; */
     background-color: #1BC100;
     width: 113%;
     align-self: flex-end;
@@ -217,7 +325,6 @@ section{
     /* border: 1px solid red; */
     align-items: center;
     padding-left: 11%;
-    display: display;
     overflow: hidden;
     border-bottom: #F5F5F5 1px solid;
     transition: max-height 0.5s ease-in-out;
@@ -225,12 +332,103 @@ section{
 }
 .manage.active{
     display: block;
-    max-height: 100%;  /*?????? la animacion cambia entre vh, px y %*/
+    max-height: 100px;  /*?????? la animacion cambia entre vh, px y %*/
 }
 
 .manage-main a:hover{
     color: #F5F5F5;
     transition: ease-in-out 0.2s;
+}
+
+/* ---------------------------------------------RESPONSIVE----------------------------------------------------------- */
+
+@media(max-width:1300px){
+    .logo, .user{
+        height: 50%;
+    }
+    .logo-text, .user-name{
+        font-size:x-large;
+    }
+    
+    .survey-main .img-container, 
+    .pat-survey-main .img-pat-container{
+        display:none;
+    }
+
+    .survey-main .survey-container,
+    .pat-survey-main .pat-survey-container{
+        width: 100%;
+        padding: 1%;
+    }
+
+    .menu-options{
+        display: none;
+    }
+
+    .menu-buttons{
+        width: 30%;
+        border-radius: 15px;
+    }
+}
+@media(max-width:685px){
+    .menu{
+        width: 25%;
+    }
+
+    .menu-buttons{
+        width: 60%;
+        border-radius: 15px;
+    }
+    .content .med-register,
+    .content .patient-register{
+        justify-content: end;
+    }
+
+    .med-register .survey-frame,
+    .patient-register .pat-survey-frame{
+        width: 95%;
+    }
+}
+@media(max-width:600px){
+    .med-register .survey-frame p,
+    .patient-register .pat-survey-frame p{
+        font-size: x-large;
+    }
+    .med-register .survey-frame label,
+    .patient-register .pat-survey-frame label{
+        font-size: small;
+        width: 60%;
+    }
+    .logo-pic{
+        width: 70px;
+    }
+}
+@media(max-width:485px){
+    .user{
+        display: none;
+    }
+
+    #nav-container{
+        display: flex;
+    }
+
+    .nav{
+        width: 100%;
+    }
+    
+    .menu{
+        display: none;
+    }
+
+    section .content{
+        width: 100%;
+    }
+
+    .content .med-register,
+    .content .patient-register{
+        justify-content: center;
+    }
+
 }
 
 /* ---------------------------------------------MAIN CONTENT------------------------------------------------- */
@@ -274,6 +472,7 @@ section{
     display: flex;
     width: 100%;
     height: 100%;
+    /* justify-content: center; */
 }
 .survey-container{
     /* border: 1px solid blue; */
@@ -283,6 +482,7 @@ section{
     flex-direction: column;
     gap: calc(1%);
     padding-left: 2%;
+    /* align-items: center; */
 }
 .question{
     /* border: 1px solid; */
@@ -343,6 +543,7 @@ section{
     /* border: 1px solid; */
     width: 40%;
     display: flex;
+    /* display: none; */
     justify-content: center;
     /* align-items: center; */
 }
@@ -362,6 +563,7 @@ section{
     width: 90%;
     background-image: url(../Img/nurse.png);
     background-size: calc(100%) calc(100%);
+    mask-image: linear-gradient(black 80%, transparent);
 }
 
 /* ------------------------------------PANEL MEDICO----------------------------------------------- */
@@ -410,6 +612,7 @@ table th{
 }
 table td{
     /* border: 1px solid black; */
+    font-size: medium;
 }
 table tr{
     justify-content: center;
@@ -547,8 +750,8 @@ table button{
     width: 90%;
     background-image: url(../Img/doctors.png);
     background-size: calc(100%) calc(100%);
+    mask-image: linear-gradient(black 80%, transparent);
 }
-
 
 
 /* ------------------------------------ LISTA PACIENTES----------------------------------------------- */
@@ -613,6 +816,7 @@ table button{
     align-items: center;
     justify-content: space-between;
     padding: 2%;
+    /* border: 1px solid red; */
 }
 
 .modal-header span{
@@ -631,8 +835,7 @@ table button{
 
 .modal-body{
     padding: 2%;
-    display: flex;
-    flex-direction: column;
+    /* border: 1px solid blue; */
 }
 
 #overlay{
@@ -677,20 +880,6 @@ table button{
     height: 55%;
     color: #ffffff;
     font-size:small;
-}
-
-.modal-savebutton button:disabled{
-    background-color: gray;
-    border-radius: 15px;
-    width: 30%;
-    border: transparent;
-    height: 55%;
-    color: #000000;
-    font-size:small;
-}
-
-.modal-savebutton button:hover{
-    cursor: pointer;
 }
 
 .edit-modal{

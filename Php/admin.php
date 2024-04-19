@@ -5,21 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedPriority ADMIN</title>
-    <link rel="stylesheet" href="../Css/admin6.css">
+    <link rel="stylesheet" href="../Css/admin.css">
 </head>
 
+<body>
+    <!-- -----------------------------HEADER------------------------------ -->
 <header>
-    <div class="logo">
-        <div class="logo-pic"></div>
-        <h2 class="logo-text">MedPriority</h2>
+
+    <div class="nav">
+        <div class="logo">
+            <div class="logo-pic"></div>
+            <h2 class="logo-text">MedPriority</h2>
+        </div>
+        <div class="user">
+            <p class="user-name">ADMIN</p>
+            <div class="user-pic"></div>
+        </div>
+        <div id="nav-container">
+            <div class="blurry-bg"></div>
+            <div class="btn-mobile" tabindex="0">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </div>
+            <div id="nav-content" tabindex="0">
+                <ul>
+                    <li><a href="#med-register">Registrar medico</a></li>
+                    <li><a href="#med-panel">Panel medico</a></li>
+                    <li><a href="#patient-register">Registrar paciente</a></li>
+                    <li><a href="#patient-list">Lista pacientes</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="user">
-        <p class="user-name">ADMIN</p>
-        <div class="user-pic"></div>
-    </div>
+
 </header>
 
-<body>
     <section>
 
     <!-- -------------------------------MODAL------------------------------------------ -->
@@ -159,7 +180,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <a href="#">Regresar</a>
                     </div>
                 </div>
-                <!-- <div class="cont-main"> -->
+                <div class="cont-main">
                     <div id="mainDiv1" class="manage-main">
                         <div id="1" class="manage active">
                             <a href="#">Gestionar médicos</a>
@@ -171,8 +192,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <a href="#med-panel">Panel médico</a>
                         </div>
                     </div>
-                <!-- </div> -->
-                <!-- <div class="cont-main"> -->
+                </div>
+                <div class="cont-main">
                     <div id="mainDiv2" class="manage-main">
                         <div id="4" class="manage active">
                             <a href="#">Gestionar pacientes</a>
@@ -184,7 +205,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <a href="#patient-list">Lista paciente</a>
                         </div>
                     </div>
-                 <!-- </div> -->
+                 </div>
             </div>
 
         </div>
