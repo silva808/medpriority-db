@@ -90,7 +90,7 @@ const valorant = document.querySelectorAll('[id^="sage"]');
 valorant.forEach(button => {
     button.addEventListener("click", function(){
         // Get the modal id associated with this button
-        console.log("sageee la mejor");
+        console.log("sage");
         const modalId = this.getAttribute('data-modal-id');
         
         // Find all input fields within the modal
@@ -107,80 +107,99 @@ valorant.forEach(button => {
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "test.php", true);
         console.log(data);
+        alert('Data Updated');
         xhr.send(JSON.stringify(data));
     });
 });
 
+// -------------------------------------------
 
-
-$(document).ready(function() {
-  // Attach click event handler to "Aplicar cambios" button
-  $('.save-button').click(function() {
-      var modalId = $(this).data('modal-id');
+  const guardarButton = document.getElementById("guardar-button");
+  
+  guardarButton.addEventListener("click", function() {
+      // Gather data from input fields
+      console.log("hlaaa");
+      const idNumber = document.querySelector('input[name="doc_id-number"]').value;
+      const name = document.querySelector('input[name="doc_name"]').value;
+      const age = document.querySelector('input[name="doc_age"]').value;
+      const phoneNumber = document.querySelector('input[name="doc_phone-number"]').value;
+      const email = document.querySelector('input[name="doc_email"]').value;
+      const sex = document.querySelector('input[name="doc_sex"]').value;
+      // You can add more fields as needed
       
-      // Gather updated user information from modal fields
-      var idType = $('#' + modalId + ' [name=id_type]').val();
-      var name = $('#' + modalId + ' [name=name]').val();
-      var age = $('#' + modalId + ' [name=age]').val();
-      var sex = $('#' + modalId + ' [name=sexmoneyfeelingsdie]').val();
-      var address = $('#' + modalId + ' [name=address]').val();
-      var phone = $('#' + modalId + ' [name=pickupyophonebaby]').val();
-      var email = $('#' + modalId + ' [name=email]').val();
-      var afi = $('#' + modalId + ' [name=afi]').val();
-      var userId = $('#' + modalId + ' [name=id]').val();
-
-      // Send AJAX POST request to update user information
-      $.ajax({
-          url: 'test.php',
-          type: 'POST',
-          dataType: 'json',
-          data: {
-              id_type: idType,
-              name: name,
-              age: age,
-              sexmoneyfeelingsdie: sex,
-              address: address,
-              pickupyophonebaby: phone,
-              email: email,
-              afi: afi,
-              id: userId
-          },
-          success: function(response) {
-              // Update corresponding row in the table with new user data
-              $('#' + modalId).modal('hide'); // Hide the modal if needed
-              var row = $('#table_row_' + userId); // Assuming you have a unique ID for each table row
-              row.find('td:nth-child(1)').text(response.id_usuario);
-              row.find('td:nth-child(2)').text(response.nombre);
-              row.find('td:nth-child(3)').text(response.edad);
-              row.find('td:nth-child(4)').text(response.telefono);
-              // Update other columns as needed
-          },
-          error: function(xhr, status, error) {
-              console.error(xhr.responseText);
-              // Handle error
+      // Prepare data object to send via AJAX
+      const datos = {
+          idNumber: idNumber,
+          name: name,
+          age: age,
+          phoneNumber: phoneNumber,
+          email: email,
+          sex: sex
+          // Add more fields if needed
+      };
+      
+      // Send AJAX request to save data
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "new.php", true);
+      xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+              // Handle response from server
+              console.log(xhr.responseText);
+              console.log(datos);
+              // Optionally, display a success message or update UI
           }
-      });
+      };
+      xhr.send(JSON.stringify(datos));
   });
-});
 
 
-$.ajax({
-  url: 'test.php',
-  type: 'POST',
-  dataType: 'json',
-  data: {
-      // Your data here
-  },
-  success: function(response) {
-      console.log('AJAX request successful:', response);
-      // Update table row or handle response as needed
-  },
-  error: function(xhr, status, error) {
-      console.error('AJAX request failed:', error);
-      // Handle error
-      console.log('Response:', xhr.responseText); // Log the entire response
-  }
-});
+  // ------------------------------------------PACIENTES---------
+
+  const valo = document.getElementById("paciente-nuevo");
+  
+  valo.addEventListener("click", function() {
+      // Gather data from input fields
+      console.log("bru");
+      const pat_docType = document.querySelector('select[name="pat-id-type"]').value;
+      const pat_idNumber = document.querySelector('input[name="pat_id-number"]').value;
+      const pat_name = document.querySelector('input[name="pat_name"]').value;
+      const pat_age = document.querySelector('input[name="pat_age"]').value;
+      const pat_phoneNumber = document.querySelector('input[name="pat_phone-number"]').value;
+      const pat_email = document.querySelector('input[name="pat_email"]').value;
+      const pat_sex = document.querySelector('input[name="pat_sex"]').value;
+      const pat_afiliation = document.querySelector('select[name="pat-afi"]').value;
+      // You can add more fields as needed
+      
+      // Prepare data object to send via AJAX
+      const daticos = {
+          pat_idNumber: pat_idNumber,
+          pat_name: pat_name,
+          pat_age: pat_age,
+          pat_phoneNumber: pat_phoneNumber,
+          pat_email: pat_email,
+          pat_sex: pat_sex,
+          pat_docType: pat_docType,
+          pat_afiliation: pat_afiliation
+          // Add more fields if needed
+      };
+      
+      // Send AJAX request to save data
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "new_patient.php", true);
+      xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+              // Handle response from server
+              console.log(xhr.responseText);
+              console.log(daticos);
+              // Optionally, display a success message or update UI
+          }
+      };
+      xhr.send(JSON.stringify(daticos));
+  });
+
+
 
 
 

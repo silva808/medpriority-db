@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedPriority ADMIN</title>
-    <!-- Add this before your JavaScript code -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <link rel="stylesheet" href="../Css/admin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -70,31 +69,31 @@
     
     <div class="modal-body">
         <div class="edit-modal">Tipo de Documento
-            <input type="text" required name=id_type value="<?php echo htmlspecialchars($ff['tipo_documento'])?>">
+            <input type="text" required name=m_id_type value="<?php echo htmlspecialchars($ff['tipo_documento'])?>">
         </div>
         <div class="edit-modal">Numero de Documento
-            <input type="text" disabled required name=id value="<?php echo htmlspecialchars($ff['id_usuario'])?>">
+            <input type="text" disabled required name=m_id value="<?php echo htmlspecialchars($ff['id_usuario'])?>">
         </div>
         <div class="edit-modal">Nombre
-            <input type="text" required name=name value="<?php echo htmlspecialchars($ff['nombre'])?>">
+            <input type="text" required name=m_name value="<?php echo htmlspecialchars($ff['nombre'])?>">
         </div>
         <div class="edit-modal">Edad
-            <input type="text" required name=age value="<?php echo htmlspecialchars($ff['edad'])?>">
+            <input type="text" required name=m_age value="<?php echo htmlspecialchars($ff['edad'])?>">
         </div>
         <div class="edit-modal">Sexo
-            <input type="text" required name=sexmoneyfeelingsdie value="<?php echo htmlspecialchars($ff['genero'])?>">
+            <input type="text" required name=m_sexmoneyfeelingsdie value="<?php echo htmlspecialchars($ff['genero'])?>">
         </div>
         <div class="edit-modal">Direccion
-            <input type="text" required name=address value="<?php echo htmlspecialchars($ff['direccion'])?>">
+            <input type="text" required name=m_address value="<?php echo htmlspecialchars($ff['direccion'])?>">
         </div>
         <div class="edit-modal">Telefono
-            <input type="text" required name=pickupyophonebaby value="<?php echo htmlspecialchars($ff['telefono'])?>">
+            <input type="text" required name=m_pickupyophonebaby value="<?php echo htmlspecialchars($ff['telefono'])?>">
         </div>
         <div class="edit-modal">Correo Electronico
-            <input type="text" required name=email value="<?php echo htmlspecialchars($ff['correo'])?>">
+            <input type="text" required name=m_email value="<?php echo htmlspecialchars($ff['correo'])?>">
         </div>
         <div class="edit-modal">Tipo de Afiliacion
-            <input type="text" required name=afi value="<?php echo htmlspecialchars($ff['tipo_afiliacion'])?>">
+            <input type="text" required name=m_afi value="<?php echo htmlspecialchars($ff['tipo_afiliacion'])?>">
         </div>
         <div class="modal-savebutton">
             <button class="save-button" id="sage" data-modal-id="<?php echo $modalId;?>">Aplicar cambios</button>
@@ -173,27 +172,27 @@
                         <div class="survey-container">
                             <div class="question">
                                 <label for="id-number">No. Identificación</label>
-                                <input type="text" required>
+                                <input type="text" name="doc_id-number" required>
                             </div>
                             <div class="question">
                                 <label for="name">Nombre</label>
-                                <input type="text" required>
+                                <input type="text" name="doc_name" required>
                             </div>
                             <div class="question">
-                                <label for="medical-specialty">Especialización</label>
-                                <input type="text" required>
+                                <label for="age">Edad</label>
+                                <input type="text" name="doc_age" required>
                             </div>
                             <div class="question">
                                 <label for="phone-number">Teléfono</label>
-                                <input type="text" required>
+                                <input type="text" name="doc_phone-number" required>
                             </div>
                             <div class="question">
-                                <label for="contract-number">No. Contrato</label>
-                                <input type="text" required>
+                                <label for="email">Correo Electronico</label>
+                                <input type="text" name="doc_email" required>
                             </div>
                             <div class="question">
-                                <label for="professional-id">Tarjeta Profesional</label>
-                                <input type="text" required>
+                                <label for="sex">Sexo</label>
+                                <input type="text" name="doc_sex" required>
                             </div>
                             <div class="question">
                                 <label for="medical-pic">Subir foto</label>
@@ -201,7 +200,7 @@
                             </div>
                             <div class="save">
                                 <div class="save-button">
-                                    <a href="#">Guardar</a>
+                                    <a href="#" id="guardar-button">Guardar</a>
                                 </div>
                             </div>
                         </div>
@@ -242,7 +241,7 @@
                                 if(mysqli_num_rows($consulta)>0){
                                     while($fila =mysqli_fetch_assoc($consulta)){
                                 ?>
-                                <tr>
+                                <tr id=table_row_<?php echo $fila['id_usuario']?>>
                                     <td> <?php echo $fila['id_usuario'];?></td>
                                     <td> <?php echo $fila['nombre'];?></td>
                                     <td> <?php echo $fila['edad'];?></td>
@@ -273,47 +272,47 @@
                                 <label for="pat-id-type">Tipo de Documento</label>
                                 <select name="pat-id-type" id="pat-id-type">
                                     <option value="null"></option>
-                                    <option value="CC">Cédula de Ciudadanía</option>
-                                    <option value="TI">Tarjeta de Identidad</option>
-                                    <option value="RC">Registro Civil</option>
-                                    <option value="PAS">Pasaporte</option>
+                                    <option value="Cedula de Ciudadania">Cédula de Ciudadanía</option>
+                                    <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
+                                    <option value="Registro Civil">Registro Civil</option>
+                                    <option value="Pasaporte">Pasaporte</option>
                                 </select>
                             </div>
                             <div class="pat-question">
                                 <label for="pat-id-number">No. Documento</label>
-                                <input type="text" required>
+                                <input type="text" name="pat_id-number" required>
                             </div>
                             <div class="pat-question">
                                 <label for="pat-name">Nombres</label>
-                                <input type="text" required>
+                                <input type="text" name="pat_name" required>
                             </div>
                             <div class="pat-question">
-                                <label for="pat-lastname">Apellidos</label>
-                                <input type="text" required>
+                                <label for="pat-email">Correo Electronico</label>
+                                <input type="text" name="pat_email" required>
                             </div>
                             <div class="pat-question">
                                 <label for="pat-age">Edad</label>
-                                <input type="text" required>
+                                <input type="text" name="pat_age" required>
                             </div>
                             <div class="pat-question">
                                 <label for="pat-phone-number">Teléfono</label>
-                                <input type="text" required>
+                                <input type="text" name="pat_phone-number" required>
                             </div>
                             <div class="pat-question">
-                                <label for="pat-address">Dirección</label>
-                                <input type="text" required>
+                                <label for="pat-sex">Genero</label>
+                                <input type="text" name="pat_sex" required>
                             </div>
                             <div class="pat-question">
-                                <label for="pat-residence-area">Zona</label>
-                                <select name="pat-residence-area" id="pat-residence-area">
+                                <label for="pat-residence-area">Tipo de Afiliacion</label>
+                                <select name="pat-afi" id="pat-afi">
                                     <option value="null"></option>
-                                    <option value="urban">Urbana</option>
-                                    <option value="rural">Rural</option>
+                                    <option value="contribute">Contributivo</option>
+                                    <option value="subsid">Subsidiado</option>
                                 </select>
                             </div>
                             <div class="save-patient">
                                 <div class="save-pat-button">
-                                    <a href="#">Guardar</a>
+                                    <a href="#" id="paciente-nuevo">Guardar</a>
                                 </div>
                             </div>
                         </div>
@@ -356,7 +355,7 @@
                                 while($row = mysqli_fetch_assoc($query)){
 
                             ?>
-                                <tr>
+                                <tr id=table_row_<?php echo $row['id_usuario']?>>
                                     <td><?php echo $row['id_usuario'];?></td>
                                     <td><?php echo $row['nombre'];?></td>
                                     <td><?php echo $row['edad'];?></td>
@@ -378,9 +377,7 @@
         </main>
     </section>
 
-    <!-- PASTE MODAL HERE IF NEEDED BACK LOL-->
-
-    <script src="../Js/admin16.js"></script>
+    <script src="../Js/admin90.js"></script>
 
 </body>
 
