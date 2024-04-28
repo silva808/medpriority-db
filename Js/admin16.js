@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     function toggleAccordion(div) {
       div.classList.toggle("active");
-      console.log("yes?????????");
+      console.log("menu");
     }
   }
 
@@ -90,7 +90,7 @@ const valorant = document.querySelectorAll('[id^="sage"]');
 valorant.forEach(button => {
     button.addEventListener("click", function(){
         // Get the modal id associated with this button
-        console.log("sage la mejor");
+        console.log("sageee la mejor");
         const modalId = this.getAttribute('data-modal-id');
         
         // Find all input fields within the modal
@@ -105,7 +105,7 @@ valorant.forEach(button => {
 
         // Send AJAX request to update user data
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "admin.php", true);
+        xhr.open("POST", "test.php", true);
         console.log(data);
         xhr.send(JSON.stringify(data));
     });
@@ -113,9 +113,74 @@ valorant.forEach(button => {
 
 
 
+$(document).ready(function() {
+  // Attach click event handler to "Aplicar cambios" button
+  $('.save-button').click(function() {
+      var modalId = $(this).data('modal-id');
+      
+      // Gather updated user information from modal fields
+      var idType = $('#' + modalId + ' [name=id_type]').val();
+      var name = $('#' + modalId + ' [name=name]').val();
+      var age = $('#' + modalId + ' [name=age]').val();
+      var sex = $('#' + modalId + ' [name=sexmoneyfeelingsdie]').val();
+      var address = $('#' + modalId + ' [name=address]').val();
+      var phone = $('#' + modalId + ' [name=pickupyophonebaby]').val();
+      var email = $('#' + modalId + ' [name=email]').val();
+      var afi = $('#' + modalId + ' [name=afi]').val();
+      var userId = $('#' + modalId + ' [name=id]').val();
+
+      // Send AJAX POST request to update user information
+      $.ajax({
+          url: 'test.php',
+          type: 'POST',
+          dataType: 'json',
+          data: {
+              id_type: idType,
+              name: name,
+              age: age,
+              sexmoneyfeelingsdie: sex,
+              address: address,
+              pickupyophonebaby: phone,
+              email: email,
+              afi: afi,
+              id: userId
+          },
+          success: function(response) {
+              // Update corresponding row in the table with new user data
+              $('#' + modalId).modal('hide'); // Hide the modal if needed
+              var row = $('#table_row_' + userId); // Assuming you have a unique ID for each table row
+              row.find('td:nth-child(1)').text(response.id_usuario);
+              row.find('td:nth-child(2)').text(response.nombre);
+              row.find('td:nth-child(3)').text(response.edad);
+              row.find('td:nth-child(4)').text(response.telefono);
+              // Update other columns as needed
+          },
+          error: function(xhr, status, error) {
+              console.error(xhr.responseText);
+              // Handle error
+          }
+      });
+  });
+});
 
 
-
+$.ajax({
+  url: 'test.php',
+  type: 'POST',
+  dataType: 'json',
+  data: {
+      // Your data here
+  },
+  success: function(response) {
+      console.log('AJAX request successful:', response);
+      // Update table row or handle response as needed
+  },
+  error: function(xhr, status, error) {
+      console.error('AJAX request failed:', error);
+      // Handle error
+      console.log('Response:', xhr.responseText); // Log the entire response
+  }
+});
 
 
 

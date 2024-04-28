@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedPriority ADMIN</title>
+    <!-- Add this before your JavaScript code -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <link rel="stylesheet" href="../Css/admin.css">
 </head>
 
@@ -95,7 +98,6 @@
         </div>
         <div class="modal-savebutton">
             <button class="save-button" id="sage" data-modal-id="<?php echo $modalId;?>">Aplicar cambios</button>
-            <!-- <input type="submit" class="save-button" id="sage" data-modal-id="<?php echo $modalId;?>"></button> -->
         </div>
     </div>
     
@@ -105,54 +107,6 @@
         }
 ?>
 <div id="overlay"></div>
-
-<!-- --------------------------------UPDATE USERS------------------------------------ -->
-<?php
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    
-    require_once 'conexion.php';
-
-    $data = json_decode(file_get_contents("php://input"), true);
-
-    $valorant = "UPDATE usuario SET 
-                tipo_documento = ?, 
-                nombre = ?, 
-                edad = ?, 
-                genero = ?, 
-                direccion = ?, 
-                telefono = ?, 
-                correo = ?, 
-                tipo_afiliacion = ? 
-              WHERE id_usuario = ?";
-
-    $stmt = mysqli_prepare($conn, $valorant);
-
-    mysqli_stmt_bind_param(
-        $stmt,
-        "ssisssssi",
-        $data['id_type'],
-        $data['name'],
-        $data['age'],
-        $data['sexmoneyfeelingsdie'],
-        $data['address'],
-        $data['pickupyophonebaby'],
-        $data['email'],
-        $data['afi'],
-        $data['id']
-    );
-
-    mysqli_stmt_execute($stmt);
-
-    if (mysqli_stmt_affected_rows($stmt) > 0) {
-        echo "yeah???????";
-    } else {
-        echo "nope";
-    }
-
-    mysqli_stmt_close($stmt);
-    mysqli_close($conn);
-}
-?>
 
         <!-- -------------------MENU------------------- -->
 
@@ -426,7 +380,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <!-- PASTE MODAL HERE IF NEEDED BACK LOL-->
 
-    <script src="../Js/admin.js"></script>
+    <script src="../Js/admin16.js"></script>
 
 </body>
 
